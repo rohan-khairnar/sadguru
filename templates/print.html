@@ -1,0 +1,41 @@
+<style>
+    .div_center{
+      height:70%; 
+      width:80%;
+      margin: auto; 
+        position: absolute;
+        left: 60%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+<script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+<script>
+    $( document ).ready(function() {
+        $("#print").click(function(event) {
+        $("title").html("Sadguru's Amrit-Tulya")
+       window.print();
+     });
+    
+    });
+</script>
+    <div >
+        <h5 style="margin-left: 40%;">Sadguru's Amrit-Tulya Products List</h5>
+    </div>
+        <div class="div_center">
+            <button id="print" >Print</button>
+            <table style=" width:inherit" border="1px">
+                <thead style="height: 40px; ">
+                    <th>Product Name</th>
+                    <th>Product Rate (Rs)</th>
+                </thead>
+                <tbody>
+                    {%for i in data%}
+                        <tr>
+                            <td style="text-align: center;">{{i[0]}}</td>
+                            <td style="text-align: center;width:20%">{{i[1]}}</td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+    </div>

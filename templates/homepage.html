@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+{% block content %}
+<table id="listtable" style=" width:100%">
+            <thead style="height: 40px; ">
+                <th>Product Name</th>
+                <th>Product Rate (Rs)</th>
+                <th colspan="2">Action's</th>
+            </thead>
+            <tbody style="overflow-y: scroll;">
+                {%for i in data%}
+                    <tr>
+                        <td ><a href="{{url_for('productDetails',prod_code=i[2] )}}">{{i[0]}}</a></td>
+                        <td ><a href="{{url_for('productDetails',prod_code=i[2] )}}">{{i[1]}}</a></td>
+                        <td class="actions" ><a href="{{url_for('deleteProduct',prod_code=i[2] )}}"><i class="lni-trash"></a></td>
+                        <td class="actions" ><a href="{{url_for('productDetails',prod_code=i[2] )}}"><i class="lni-pencil-alt"></a></td>
+                    </tr>
+        
+                {%endfor%}
+            </tbody>
+        </table>
+        {%endblock %}

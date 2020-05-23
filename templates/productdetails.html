@@ -1,0 +1,47 @@
+{%extends "base.html"%}
+{% block content %}
+<script>
+    $( document ).ready(function() {
+    $(".addnewproduct").hide();
+    $("#print").hide();
+    $('#pname').prop("disabled",true);
+    $('#prate').prop("disabled",true);
+    $('#pdesc').prop("disabled",true);
+    $('#save').hide();
+    $('#edit').click(function(event){
+        $('#pname').prop("disabled",false);
+        $('#prate').prop("disabled",false);
+        $('#pdesc').prop("disabled",false);
+        $('#save').show();
+    })
+});
+</script>
+<style>
+    .wrap-add-new {
+  width: 50%;
+  height: 370px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+</style>
+    <div class="wrap-add-new">
+        <button id="edit" style="float: right;"><i class="lni-pencil-alt"></i></button>
+        <form action="/update-product" method="post">
+            <input  type="text" id="pcode" name="code" value="{{data[0]}}" hidden>
+            <label for="pname">Product Name</label><br>
+            <input  type="text" id="pname" name="name" value="{{data[2]}}">
+            <br>
+            <label for="prate">Product Rate</label><br>
+            <input  type="number" id="prate" name="rate" value="{{data[1]}}">
+            <br>
+            <label for="fdesc">Product Description</label><br>
+            <textarea rows="7" style="width:100%" name="desc" id="pdesc">{{data[3]}}</textarea>    
+            <input id="save" style="width:100px; height:30px;padding-top:1px" type="submit" value="Save"></input>
+            
+        </form>
+    </div>
+
+{% endblock%}

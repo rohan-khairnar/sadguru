@@ -1,0 +1,74 @@
+    .div_center{
+      height:70%; 
+      width:80%;
+      margin: auto; 
+       overflow-x: hidden; 
+        overflow-x: auto; 
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    body, html {
+  height: 100%;
+  margin: 0;
+  background-color: rgba(176, 196, 222, 0.411);
+}
+    .bg {
+  height: 100%; 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.head{
+  margin: 0;
+  height: 10%;
+  width: 100%;
+  background-color: rgba(53, 75, 53, 0.589);
+  text-align:center; color: rgb(185, 235, 8);
+  color: aquamarine;
+}
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+tr{
+    text-align: center;
+    height:30px; 
+}
+thead{background-color: grey;}
+td{
+    padding: 8px;border-bottom:1px solid black;
+}
+td a{
+  text-decoration: none;
+  color: black;
+}
+
+.actions{
+    width: 8%;
+}
+.actions:hover{background-color: rgb(230, 197, 197);}
+tr:hover {background-color:#f5f0f0;}
+.background{
+    float: left;
+    padding-left: 3%;
+    height: 60px;
+    width: 60px;
+}
+.addnewproduct {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  height: 12%; width: 7%;
+  margin-top: 1%; float: right; 
+  margin-right: 5%;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+{%block head%}
+<html>
+
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/home.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename = 'css/LineIcons.css')}}">
+
+    <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+
+    <title> Sadguru's Amrit-Tulya </title>
+    <body>
+        <div class="head">
+            <div>
+                <a href="/"> <img class="background" src="{{url_for('static', filename='images/logo.png')}}"> </a>
+                <h style="float: left;padding-top:2%;padding-left:2%">Sadguru's Amrit-Tulya</h>
+                <link rel="shortcut icon" href="{{url_for('static',filename = 'images/logo.png')}}" type="image/png')}}">
+            </div>
+            <a href="{{url_for('addProductPage')}}" class="addnewproduct">Add New</a>
+        </div>
+        {%endblock%}
+    
+        <div class="div_center">
+            {%block content%}
+            {%endblock%}
+        </div>
+  
+        <a id="print" href="{{url_for('viewPrintFormat')}}"><button style="float: right; margin-right:10%">Print Sheet</button>
+    </body>
+</html>

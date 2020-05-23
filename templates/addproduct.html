@@ -1,0 +1,34 @@
+{%extends "base.html"%}
+{% block content %}
+<script>
+    $( document ).ready(function() {
+    $(".addnewproduct").hide();
+    $("#print").hide();
+});
+</script>
+<style>
+    .wrap-add-new {
+  width: 50%;
+  height: 370px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+</style>
+    <div class="wrap-add-new">
+        <form action="/save-product" method="post">
+            <label for="pname">Product Name</label><br>
+            <input  type="text" id="pname" name="name" placeholder="Product Name">
+            <br>
+            <label for="prate">Product Rate</label><br>
+            <input  type="number" id="prate" name="rate" placeholder="Product Rate">
+            <br>
+            <label for="fdesc">Product Description</label><br>
+            <textarea rows="10" style="width:100%" name="desc" placeholder="Enter text here..."></textarea>    
+            <input id="save" style="width:100px; height:30px;padding-top:1px" type="submit" value="Save"></input>
+        </form>
+    </div>
+
+{% endblock%}
