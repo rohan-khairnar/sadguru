@@ -29,9 +29,8 @@ def addProductPage():
 @app.route('/save-product', methods=['POST'])
 def saveProduct():
     data = request.form
-    prod = {"prodname":data['name'],"prodrate":data['rate'],"proddesc":data['desc']}
     con = eng.connect()
-    result = con.execute(products.insert(),[prod])
+    result = con.execute(products.insert(),[data])
     return redirect(url_for("addProductPage"))
 
 @app.route('/delete-product/<prod_code>')
@@ -42,8 +41,8 @@ def deleteProduct(prod_code):
 
 @app.route('/update-product', methods=['POST'])
 def updateProduct():
-    data = request.form
-    prod = {"prodname":data['name'],"prodrate":data['rate'],"proddesc":data['desc']}
+    raw_data = str(request.get_data())[2:-1].split('&',3)
+    data = dict(s.split('=', 1) for s in raw_data)
     con = eng.connect()
     result = con.execute("update products set prodname='%s' , prodrate=%d , proddesc='%s' where prodcode=%d"%(data['name'],int(data['rate']),data['desc'],int(data['code'])))
     return redirect(url_for("productDetails",prod_code=int(data['code'])))
