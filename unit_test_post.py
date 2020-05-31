@@ -2,6 +2,9 @@ from app import app
 import unittest
 
 class TestPOSTCases(unittest.TestCase):
+    print("--- Testing only API response 200 ok ---")
+    print("Note : Please Enter Proper deatils with correct datatypes to run this API's ")
+    print("--")
     def testAddProduct(self):
         tester = app.test_client(self)
         print("--- Test Save Product ---")
