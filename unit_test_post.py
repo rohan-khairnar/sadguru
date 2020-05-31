@@ -16,10 +16,11 @@ class TestPOSTCases(unittest.TestCase):
     def testUpdateProduct(self):
         tester = app.test_client(self)
         print("--- Test Update Product Details ---")
+        p_code = int(input("Product Code (Int):"))
         p_rate = int(input("Product Rate (Int):"))
         p_name = input("Product Name :")
         p_desc = input("Product Description :")
-        data = {"code":1,"name":p_name,"rate":str(p_rate),"desc":str(p_desc)}
+        data = {"code":p_code,"name":p_name,"rate":str(p_rate),"desc":str(p_desc)}
         
         resp = tester.post("/update-product",data=data,follow_redirects=True)
         status = resp.status_code
